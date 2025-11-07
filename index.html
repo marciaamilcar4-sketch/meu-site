@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Convite de Graduação - Mércia Amílcar</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<!-- Música automática -->
+<audio id="musica" src="musica.mp3" autoplay loop></audio>
+
+<div class="container">
+<h1>🎓 Convite de Graduação 🎓</h1>
+<p class="frase">
+“Com gratidão e alegria, celebro o fim de uma etapa e o início de novos sonhos.
+Cada desafio me trouxe até aqui à conquista de ser Licenciada em Engenharia Informática.
+Vem comemorar comigo!”
+</p>
+
+<h2>Mércia Amílcar</h2>
+<p class="sub">Engenheira Informática</p>
+<p>📅 Data: 13 de dezembro às 14h</p>
+
+<div class="botoes">
+<button onclick="confirmarPresenca()">Confirmar Presença + Enviar Selfie</button>
+<button onclick="mostrarPaleta()">Dress Code</button>
+<button onclick="abrirMapa()">Localização</button>
+</div>
+
+<p class="nota">✨ Evento reservado a adultos — não é extensivo a crianças ✨</p>
+
+<div id="paleta" class="paleta">
+<h3>🎨 Paleta de Cores</h3>
+<img src="IMG_5698.jpg" alt="Paleta de cores" />
+</div>
+</div>
+
+<script>
+// Música automática com desbloqueio suave
+window.addEventListener('load', () => {
+const audio = document.getElementById('musica');
+audio.volume = 0.3;
+const playPromise = audio.play();
+if (playPromise !== undefined) {
+playPromise.catch(() => {
+document.body.addEventListener('click', () => audio.play(), { once: true });
+});
+}
+});
+
+// Mostrar paleta de cores
+function mostrarPaleta() {
+document.getElementById('paleta').style.display = 'block';
+}
+
+// Localização no mapa
+function abrirMapa() {
+window.open("https://www.google.com/maps/search/?api=1&query=Hospital+de+Ndlavela,+Av+04+de+Outubro,+Casa+280,+Quarteirão+04,+em+frente+à+Farmácia+Ndlavela");
+}
+
+// Enviar confirmação e selfie via WhatsApp
+function confirmarPresenca() {
+const msg = encodeURIComponent("Olá Mércia! Confirmo minha presença na tua graduação 🎓✨ Segue minha selfie 📸");
+window.open("https://wa.me/258842136935?text=" + msg);
+}
+</script>
+</body>
+</html>
